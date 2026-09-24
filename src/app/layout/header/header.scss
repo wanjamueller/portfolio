@@ -1,9 +1,65 @@
 header {
   max-width: 1440px;
+  width: 100%;
   padding: 19px 72px;
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
 
   img {
     height: 50px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+
+    ul {
+      display: flex;
+      gap: 10px;
+      list-style: none;
+      justify-content: space-between;
+      width: 100%;
+
+      li {
+        padding: 10px;
+
+        a {
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .language-picker {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    button {
+      background: none;
+      border: none;
+      color: white;
+    }
+
+    .language-icon {
+      width: 32px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+
+      .bar {
+        height: 8px;
+      }
+
+      .mark {
+        height: 16px;
+        position: absolute;
+      }
+    }
   }
 }
