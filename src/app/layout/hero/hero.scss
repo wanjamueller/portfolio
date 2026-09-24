@@ -6,4 +6,80 @@
   background-size: cover; /* fills width AND height, crops overflow */
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .photo {
+    position: absolute;
+    top: 220px;
+    right: 220px;
+    transform: rotate(10deg);
+
+    img {
+      height: 244px;
+    }
+  }
+
+  .hero-content {
+    width: 70dvw;
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      button {
+        height: 40px;
+        padding: 12px 24px;
+        background: none;
+        border: 1px solid white;
+        border-radius: 100px;
+        color: white;
+      }
+
+      .hello {
+        align-self: start;
+      }
+
+      .hero-text {
+        width: 100%;
+        align-self: center;
+        color: white;
+        font-size: 128px;
+        font-weight: 700;
+
+        .front {
+          text-align: left;
+        }
+
+        .dev {
+          text-align: right;
+        }
+      }
+
+      .touch {
+        align-self: end;
+      }
+    }
+  }
+
+  .social {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+    left: 72px;
+    bottom: 100px;
+
+    .social-icon {
+      height: 40px;
+      width: 40px;
+      border: 1px solid white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
