@@ -1,8 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Hero } from './layout/hero/hero';
+import { Header } from './layout/header/header';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Hero, Header],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
