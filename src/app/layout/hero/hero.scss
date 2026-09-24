@@ -1,0 +1,9 @@
+.hero-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-image: url(../../../../public/assets/img/01_backgrounds/01_hero.webp);
+  background-size: cover; /* fills width AND height, crops overflow */
+  background-position: center;
+  background-repeat: no-repeat;
+}
