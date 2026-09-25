@@ -1,0 +1,65 @@
+@use '../../../../public/assets/styles/base/variables' as *;
+
+.skills-wrapper {
+  background-size: cover;
+  background-image: url(../../../../public/assets/img/01_backgrounds/02_skills.webp);
+  background-size: cover; /* fills width AND height, crops overflow */
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .skills-content {
+    padding: 144px calc(50% - 660px);
+    color: $off-white;
+    width: 100%;
+
+    .skills-intro {
+      display: flex;
+      gap: 48px;
+      width: 100%;
+
+      .skill-header {
+        width: 260px;
+
+        .stack {
+          text-align: right;
+        }
+      }
+
+      .skill-text {
+        width: 620px;
+        position: relative;
+        top: -100px;
+        left: 50px;
+        color: black;
+        font-size: 1.125rem;
+      }
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 40px;
+      max-width: 640px;
+      margin: auto;
+      justify-content: center;
+
+      img {
+        filter: grayscale(100%);
+        width: 72px;
+      }
+    }
+
+    .peel {
+      width: 100%;
+      padding-right: 60px;
+      display: flex;
+      justify-content: flex-end;
+      transform: rotate(7deg);
+      position: relative;
+      bottom: 250px;
+
+      img {
+        width: 200px;
+      }
+    }
+  }
+}
