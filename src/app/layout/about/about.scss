@@ -1,0 +1,108 @@
+.about-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 144px 120px;
+  gap: 50px;
+
+  .about-snippets {
+    width: 40dvw;
+    max-width: 550px;
+
+    .yellow-snippet {
+      position: relative;
+      top: 30px;
+      transform: rotate(-3deg);
+      z-index: 3;
+
+      > img {
+        position: relative;
+        top: 65px;
+      }
+
+      .yellow-details {
+        position: relative;
+        top: -55px;
+        z-index: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        p {
+          font-size: 1.5rem;
+          color: white;
+        }
+      }
+    }
+
+    .blue-snippet {
+      position: relative;
+      z-index: 2;
+
+      > img {
+        position: relative;
+      }
+
+      .blue-details {
+        position: relative;
+        top: -110px;
+        z-index: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        p {
+          font-size: 1.5rem;
+          color: white;
+        }
+      }
+    }
+
+    .orange-snippet {
+      position: relative;
+      top: -55px;
+      transform: rotate(3deg);
+      z-index: 1;
+
+      > img {
+        position: relative;
+        top: -30px;
+      }
+
+      .orange-details {
+        position: relative;
+        top: -140px;
+        z-index: 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        p {
+          font-size: 1.5rem;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    width: 40dvw;
+    max-width: 550px;
+
+    button {
+      background: none;
+      border: 1px solid black;
+      border-radius: 100px;
+      height: 40px;
+      padding: 12px 24px;
+      align-self: flex-end;
+    }
+  }
+}
