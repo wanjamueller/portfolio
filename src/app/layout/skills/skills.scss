@@ -1,9 +1,9 @@
 @use '../../../../public/assets/styles/base/variables' as *;
 
 .skills-wrapper {
-  background-size: cover;
+  height: 800px;
   background-image: url(../../../../public/assets/img/01_backgrounds/02_skills.webp);
-  background-size: cover; /* fills width AND height, crops overflow */
+  background-size: 100dvw 800px; /* fills width AND height, crops overflow */
   background-position: center;
   background-repeat: no-repeat;
 

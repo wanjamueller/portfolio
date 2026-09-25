@@ -1,0 +1,32 @@
+.projects-content {
+  padding: 144px calc(50% - 660px);
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  .projects-intro {
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .projects-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  .loco {
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .loco-text {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+}
