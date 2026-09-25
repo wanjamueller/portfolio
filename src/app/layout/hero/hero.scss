@@ -46,8 +46,11 @@
         width: 100%;
         align-self: center;
         color: white;
-        font-size: 128px;
-        font-weight: 700;
+
+        p {
+          font-size: 128px;
+          font-weight: 700;
+        }
 
         .front {
           text-align: left;
