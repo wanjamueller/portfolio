@@ -1,15 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Hero } from './layout/hero/hero';
 import { Header } from './layout/header/header';
-import { About } from './layout/about/about';
-import { Skills } from './layout/skills/skills';
-import { Projects } from './layout/projects/projects';
-import { References } from './layout/references/references';
-import { Contact } from './layout/contact/contact';
+import { Main } from './layout/main/main';
 
 @Component({
-  imports: [RouterOutlet, Hero, Header, About, Skills, Projects, References, Contact],
+  imports: [RouterOutlet, Header, Main],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',
