@@ -1,8 +1,8 @@
 header {
   height: 80px;
-  max-width: 1440px;
+  padding: 19px calc(50% - 648px);
   width: 100%;
-  padding: 19px 72px;
+  // padding: 19px 72px;
   position: absolute;
   display: flex;
   justify-content: space-between;
