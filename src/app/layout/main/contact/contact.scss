@@ -1,12 +1,12 @@
 .contact-wrapper {
-  height: 800px;
+  height: 900px;
   background-image: url(../../../../../public/assets/img/01_backgrounds/03_contact.webp);
-  background-size: 100dvw 800px; /* fills width AND height, crops overflow */
+  background-size: 100dvw 900px; /* fills width AND height, crops overflow */
   background-position: center;
   background-repeat: no-repeat;
 
   .contact-content {
-    padding: 144px calc(50% - 660px);
+    padding: 144px calc(50% - 600px);
     width: 100%;
     color: white;
     display: flex;
