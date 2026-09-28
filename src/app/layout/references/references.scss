@@ -1,0 +1,74 @@
+.reference-content {
+  padding: 144px calc(50% - 660px);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  .reference-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: relative;
+    right: 50px;
+
+    .words-wrapper {
+      display: flex;
+      gap: 16px;
+
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  .references {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ref-one {
+      position: relative;
+      top: -20px;
+      left: 150px;
+      transform: rotate(-3deg);
+      z-index: 3;
+    }
+
+    .ref-two {
+      z-index: 2;
+    }
+
+    .ref-three {
+      position: relative;
+      top: -20px;
+      right: 150px;
+      transform: rotate(3deg);
+      z-index: 1;
+    }
+
+    .ref-card {
+      height: 320px;
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .ref-text,
+      .ref-source {
+        position: relative;
+        top: -325px;
+        display: flex;
+        justify-content: space-between;
+        gap: 4px;
+
+        .ref-link {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+      }
+    }
+  }
+}
