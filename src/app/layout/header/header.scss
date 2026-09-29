@@ -1,16 +1,26 @@
+@use '../../../../public/assets/styles/base/variables' as *;
+
 header {
   height: 80px;
   padding: 19px calc(50% - 648px);
   width: 100%;
-  // padding: 19px 72px;
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
 
-  img {
+  .logo {
+    display: block;
+    width: 50px;
     height: 50px;
+    background-color: $blue;
+    mask: url('/assets/img/logo/initials_blue.svg') center / contain no-repeat;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $yellow;
+    }
   }
 
   nav {
@@ -30,7 +40,69 @@ header {
 
         a {
           text-decoration: none;
-          color: white;
+          color: $off-white;
+          position: relative;
+          display: inline-block;
+
+          .circle {
+            position: absolute;
+            inset: -8px -16px; // make the circle a bit larger than the text
+            width: calc(100% + 32px);
+            height: calc(100% + 16px);
+            pointer-events: none;
+            clip-path: inset(0 0 100% 0); // hidden: clipped from the top down
+            transition: clip-path 0.4s ease;
+          }
+
+          &:hover .circle,
+          &:focus-visible .circle {
+            clip-path: inset(0 0 0 0); // fully visible
+          }
+
+          .underline {
+            position: absolute;
+            inset: -8px -16px; // make the circle a bit larger than the text
+            width: calc(100% + 32px);
+            height: calc(100% + 16px);
+            pointer-events: none;
+            clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
+            transition: clip-path 0.4s ease;
+          }
+
+          &:hover .underline,
+          &:focus-visible .underline {
+            clip-path: inset(0 0 0 0); // fully visible
+          }
+
+          .wave {
+            position: absolute;
+            inset: -8px -16px; // make the circle a bit larger than the text
+            width: calc(100% + 32px);
+            height: calc(100% + 42px);
+            pointer-events: none;
+            clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
+            transition: clip-path 0.4s ease;
+          }
+
+          &:hover .wave,
+          &:focus-visible .wave {
+            clip-path: inset(0 0 0 0); // fully visible
+          }
+
+          .line {
+            position: absolute;
+            inset: -8px -16px; // make the circle a bit larger than the text
+            width: calc(100% + 32px);
+            height: calc(100% + 16px);
+            pointer-events: none;
+            clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
+            transition: clip-path 0.4s ease;
+          }
+
+          &:hover .line,
+          &:focus-visible .line {
+            clip-path: inset(0 0 0 0); // fully visible
+          }
         }
       }
     }
@@ -38,13 +110,31 @@ header {
 
   .language-picker {
     display: flex;
-    gap: 4px;
+    gap: 8px;
     align-items: center;
 
     button {
       background: none;
       border: none;
-      color: white;
+      color: $off-white;
+      position: relative;
+      display: inline-block;
+
+      .box {
+        position: absolute;
+        inset: -8px -4px;
+        width: calc(100% + 10px);
+        height: calc(100% + 16px);
+        transform: rotate(180deg);
+        pointer-events: none;
+        clip-path: inset(100% 0 0 100%);
+        transition: clip-path 0.4s ease;
+      }
+
+      &:hover .box,
+      &:focus-visible .box {
+        clip-path: inset(0 0 0 0);
+      }
     }
 
     .language-icon {
