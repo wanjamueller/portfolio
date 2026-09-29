@@ -1,19 +1,28 @@
 @use '../../../../public/assets/styles/base/variables' as *;
 
 header {
-  height: 80px;
+  height: 100px;
   padding: 19px calc(50% - 648px);
   width: 100%;
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
+  z-index: 10;
+  transition:
+    background-color 0.5s ease-in-out,
+    backdrop-filter 1s ease-in-out;
+
+  &.scrolled {
+    background-color: rgb(14 16 19 / 60%);
+    backdrop-filter: blur(8px);
+  }
 
   .logo {
     display: block;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background-color: $blue;
     mask: url('/assets/img/logo/initials_blue.svg') center / contain no-repeat;
     transition: background-color 0.3s ease;

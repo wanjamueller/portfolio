@@ -4,6 +4,7 @@
   background-size: 100dvw 900px; /* fills width AND height, crops overflow */
   background-position: center;
   background-repeat: no-repeat;
+  scroll-margin-top: 100px;
 
   .contact-content {
     padding: 144px calc(50% - 600px);
