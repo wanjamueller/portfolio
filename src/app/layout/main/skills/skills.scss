@@ -6,6 +6,7 @@
   background-size: 100dvw 800px; /* fills width AND height, crops overflow */
   background-position: center;
   background-repeat: no-repeat;
+  scroll-margin-top: 100px;
 
   .skills-content {
     padding: 144px calc(50% - 600px);
