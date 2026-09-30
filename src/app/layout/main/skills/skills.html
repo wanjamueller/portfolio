@@ -5,8 +5,16 @@
         <div class="stack">
           <h4>MY STACK</h4>
         </div>
-        <div class="skill-set"></div>
-        <h2>Skill set</h2>
+        <div class="skill-set">
+          <h2>
+            Skill set
+            <img
+              class="circle-brush"
+              src="assets/img/00_hand-drawn-lines/02_skills/circle.webp"
+              alt="circle-brush"
+            />
+          </h2>
+        </div>
       </div>
       <div class="skill-snippet">
         <img src="../assets/img/02_ripped-paper/bg-skills.webp" alt="skill-notes-image" />
@@ -20,36 +28,61 @@
       </div>
     </div>
     <div class="skills">
-      <div class="html">
+      <div class="html skill">
         <img src="../assets/img/logo/HTML.svg" alt="html-logo" />
+        <p>HTML</p>
       </div>
-      <div class="css">
+      <div class="css skill">
         <img src="../assets/img/logo/CSS.svg" alt="css-logo" />
+        <p>CSS</p>
       </div>
-      <div class="java">
+      <div class="java skill">
         <img src="../assets/img/logo/Js.svg" alt="js-logo" />
+        <p>JavaScript</p>
       </div>
-      <div class="type">
+      <div class="type skill">
         <img src="../assets/img/logo/Ts.svg" alt="ts-logo" />
+        <p>TypeScript</p>
       </div>
-      <div class="angular">
+      <div class="angular skill">
         <img src="../assets/img/logo/Angular.svg" alt="angular-logo" />
+        <p>Angular</p>
       </div>
-      <div class="supabase">
+      <div class="supabase skill">
         <img src="../assets/img/logo/Supabase.svg" alt="supabase-lgog" />
+        <p>Supabase</p>
       </div>
-      <div class="git">
+      <div class="git skill">
         <img src="../assets/img/logo/Git-skill.svg" alt="git-logo" />
+        <p>Git</p>
       </div>
-      <div class="api">
+      <div class="api skill">
         <img src="../assets/img/logo/Rest-Api.svg" alt="rest-api-logo" />
+        <p>REST-API</p>
       </div>
-      <div class="scrum">
+      <div class="scrum skill">
         <img src="../assets/img/logo/Scrum.svg" alt="scrum-logo" />
+        <p>Scrum</p>
       </div>
     </div>
-    <div class="peel">
-      <img src="../assets/img/03_stickers/01_skills-peel-off/1_default.webp" alt="peel-off-image" />
-    </div>
+    <button class="peel" [class.peeled]="peeled" (click)="togglePeel()" aria-label="Peel sticker">
+      <img
+        class="frame frame-1"
+        src="assets/img/03_stickers/01_skills-peel-off/1_default.webp"
+        alt=""
+      />
+      <img
+        class="frame frame-2"
+        src="assets/img/03_stickers/01_skills-peel-off/2_transition.webp"
+        alt=""
+      />
+      <img
+        class="frame frame-3"
+        src="assets/img/03_stickers/01_skills-peel-off/3_final.webp"
+        alt=""
+      />
+      <img class="arrow" src="assets/img/03_stickers/arrow.webp" alt="" />
+      <span class="label">Pull to peel</span>
+    </button>
   </div>
 </section>

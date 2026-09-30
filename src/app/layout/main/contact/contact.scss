@@ -1,3 +1,5 @@
+@use '../../../../../public/assets/styles/base/variables' as *;
+
 .contact-wrapper {
   height: 900px;
   background-image: url(../../../../../public/assets/img/01_backgrounds/03_contact.webp);
@@ -19,9 +21,11 @@
       flex-direction: column;
       gap: 48px;
 
-      img {
+      .arrow-right {
         width: 280px;
         align-self: flex-end;
+        clip-path: inset(100% 0 0 0); // hidden
+        animation: draw-arrow-right 5s ease-in-out infinite;
       }
     }
 
@@ -35,6 +39,8 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        border-bottom: 1px solid $yellow;
+        border-top: 1px solid transparent;
 
         label {
           padding: 16px 24px 0px 24px;
@@ -45,13 +51,25 @@
           background: none;
           padding: 0px 24px 16px 24px;
           border: none;
-          border-bottom: 1px solid rgba(247, 197, 24, 1);
           font-size: 1.125rem;
 
           &::placeholder {
             color: white;
             opacity: 1;
           }
+        }
+
+        &:hover {
+          border-bottom-color: $blue;
+          border-top-color: $blue;
+
+          label {
+            color: $orange;
+          }
+        }
+
+        &:has(+ .form-question:hover) {
+          border-bottom-color: transparent;
         }
       }
 
@@ -77,15 +95,32 @@
       }
 
       button {
-        background: none;
-        color: white;
-        border: 1px solid white;
-        border-radius: 100px;
-        height: 40px;
-        width: 154px;
-        padding: 12px 24px;
         align-self: flex-end;
+        background: none;
+        color: $off-white;
+        padding: 12px 60px;
+        border: 1.5px solid $off-white;
+        border-radius: 999px;
+        box-shadow: 3px 4px 0 $off-white;
       }
     }
+  }
+}
+
+@keyframes draw-arrow-right {
+  0% {
+    clip-path: inset(0 100% 0 0); // hidden
+  }
+  16.67% {
+    clip-path: inset(0 0 0 0); // drawn after 1s
+  }
+  66.67% {
+    clip-path: inset(0 0 0 0); // stays for 3s
+  }
+  83.33% {
+    clip-path: inset(0 0 0 100%); // erased after 1s
+  }
+  100% {
+    clip-path: inset(0 0 0 100%); // gone for 1s
   }
 }
