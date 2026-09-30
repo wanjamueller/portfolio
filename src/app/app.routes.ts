@@ -5,6 +5,7 @@ import { Projects } from './layout/main/projects/projects';
 import { Contact } from './layout/main/contact/contact';
 import { Main } from './layout/main/main';
 import { Hero } from './layout/main/hero/hero';
+import { Header } from './layout/header/header';
 
 export const routes: Routes = [
   { path: '', component: Main },
