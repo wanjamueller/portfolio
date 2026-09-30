@@ -82,11 +82,22 @@
     .social-icon {
       height: 40px;
       width: 40px;
-      border: 1px solid white;
+      border: 1px solid $off-white;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      img {
+        display: block;
+      }
+
+      background: linear-gradient($blue, $blue) no-repeat bottom / 100% 0%; // bottom → top
+      transition: background-size 0.3s ease;
+
+      &:hover {
+        background-size: 100% 100%;
+      }
     }
   }
 }
