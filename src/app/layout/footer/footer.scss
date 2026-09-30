@@ -1,11 +1,12 @@
 @use '../../../../public/assets/styles/base/variables' as *;
 @use '../../../../public/assets/styles/base/mixins' as mixin;
+@use '../../../../public/assets/styles/base/standard';
 
 footer {
   height: 132px;
   position: relative;
   display: block;
-  margin-top: -188px;
+  margin-top: -220px;
   margin-bottom: 56px;
   padding: 0px calc(50% - 600px);
 
@@ -14,8 +15,61 @@ footer {
     align-items: flex-end;
     justify-content: space-between;
 
-    p {
-      color: white;
+    // p {
+    //   color: $off-white;
+    // }
+
+    // a {
+    //   text-decoration: none;
+    //   color: $off-white;
+    //   font-size: 1.125rem;
+    //   padding: 12px 28px;
+    //   border-radius: 999px;
+
+    //   background: linear-gradient($blue, $blue) no-repeat bottom / 100% 0%; // bottom → top
+    //   transition: background-size 0.1s ease;
+
+    //   img {
+    //     position: relative;
+    //     top: -20px;
+    //     right: -80%;
+    //   }
+
+    //   &:hover {
+    //     background-size: 100% 100%;
+    //   }
+    // }
+
+    .footer-link {
+      position: relative; // parent for the icon
+      text-decoration: none;
+      color: $off-white;
+      font-size: 1.125rem;
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: linear-gradient($blue, $blue) no-repeat bottom / 100% 0%;
+      transition: background-size 0.1s ease;
+
+      .footer-icon {
+        position: absolute;
+        top: -30px;
+        right: -4px;
+        width: 28px;
+        opacity: 0;
+        transform: translateX(-44px) rotate(-180deg); // start: 88px to the left, turned back one full rotation
+        transition:
+          opacity 0.3s ease,
+          transform 0.6s ease-out;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-size: 100% 100%;
+        .footer-icon {
+          opacity: 1;
+          transform: translateX(0) rotate(0deg); // rolls right and stops in its current spot
+        }
+      }
     }
 
     .credits {
@@ -31,9 +85,34 @@ footer {
     }
 
     .copyrights {
+      width: 200px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 16px;
+      padding-bottom: 12px;
+      color: $off-white;
+
+      a {
+        color: $off-white;
+        text-decoration: none;
+        position: relative;
+        display: inline-block;
+
+        .brush-mark {
+          position: absolute;
+          left: 0px;
+          bottom: -10px;
+          width: 100px;
+          height: 10px;
+          clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
+          transition: clip-path 0.4s ease;
+        }
+
+        &:hover .brush-mark,
+        &:focus-visible .brush-mark {
+          clip-path: inset(0 0 0 0); // fully visible
+        }
+      }
     }
   }
 }
