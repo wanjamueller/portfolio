@@ -20,9 +20,26 @@
 
       .skill-header {
         width: 260px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
 
         .stack {
           text-align: right;
+        }
+
+        .skill-set {
+          position: relative;
+          display: inline-block;
+
+          .circle-brush {
+            position: absolute;
+            left: -30px;
+            bottom: 1px;
+            width: 120%;
+            clip-path: inset(100% 0 0 0); // hidden
+            animation: draw-circle 5s ease-in-out infinite;
+          }
         }
       }
 
@@ -42,25 +59,125 @@
       max-width: 640px;
       margin: auto;
       justify-content: center;
+      align-items: flex-end;
+      text-align: center;
 
-      img {
-        filter: grayscale(100%);
-        width: 72px;
+      .skill {
+        height: 100px;
+
+        img {
+          filter: grayscale(100%);
+          width: 72px;
+          transition:
+            filter 0.2s ease-in-out,
+            width 0.2s ease-in-out;
+        }
+
+        img:hover {
+          filter: none;
+          width: 80px;
+        }
       }
     }
 
     .peel {
-      width: 100%;
-      padding-right: 60px;
-      display: flex;
-      justify-content: flex-end;
-      transform: rotate(7deg);
-      position: relative;
-      bottom: 250px;
+      // reset default button styles
+      background: none;
+      border: none;
+      padding: 0;
+      font: inherit;
+      color: inherit;
 
-      img {
-        width: 200px;
+      // positioning
+      position: relative;
+      display: inline-block;
+      width: 200px;
+      transform: rotate(7deg);
+      bottom: 180px;
+      left: 1000px;
+
+      .frame {
+        display: block;
+        width: 100%;
+      }
+
+      // frames 2 + 3 lie exactly on top of frame 1, hidden
+      .frame-2,
+      .frame-3 {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+      }
+
+      // unpeel (second click): frame 3 disappears first, then frame 2
+      .frame-3 {
+        transition: opacity 0.05s ease 0s;
+      }
+
+      .frame-2 {
+        transition: opacity 0.05s ease 0.05s;
+      }
+
+      .arrow,
+      .label {
+        transition: opacity 0.1s ease 0.1s; // text returns after the sticker is back
+      }
+
+      .arrow {
+        position: absolute;
+        top: 12%;
+        left: 38%;
+        width: 22%;
+      }
+
+      .label {
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        width: 57%;
+        font-family: 'Kalam';
+        font-size: 2.5rem;
+        text-align: center;
+        line-height: 110%;
+      }
+
+      // peel (first click)
+      &.peeled {
+        .arrow,
+        .label,
+        .frame-1 {
+          opacity: 0;
+          transition-delay: 0s; // text vanishes immediately
+        }
+
+        .frame-2 {
+          opacity: 1;
+          transition-delay: 0s; // half-peeled first
+        }
+
+        .frame-3 {
+          opacity: 1;
+          transition-delay: 0.05s; // then fully peeled
+        }
       }
     }
+  }
+}
+
+@keyframes draw-circle {
+  0% {
+    clip-path: inset(0 0 100% 0); // hidden
+  }
+  16.67% {
+    clip-path: inset(0 0 0 0); // drawn after 1s
+  }
+  66.67% {
+    clip-path: inset(0 0 0 0); // stays for 3s
+  }
+  83.33% {
+    clip-path: inset(0 0 100% 0); // erased after 1s
+  }
+  100% {
+    clip-path: inset(0 0 100% 0); // gone for 1s
   }
 }

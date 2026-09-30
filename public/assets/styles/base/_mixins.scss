@@ -1,0 +1,22 @@
+@use './variables' as *;
+
+@mixin logo {
+  display: block;
+  width: 70px;
+  height: 70px;
+  background-color: $blue;
+  mask: url('/assets/img/logo/initials_blue.svg') center / contain no-repeat;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $yellow;
+  }
+}
+
+@mixin button {
+  padding: 12px 28px;
+  border: 1.5px solid;
+  border-radius: 999px;
+  box-shadow: 3px 4px 0;
+  font-size: 1.125rem;
+}

@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './skills.scss',
   templateUrl: './skills.html',
 })
-export class Skills {}
+export class Skills {
+  peeled = false;
+
+  togglePeel() {
+    this.peeled = !this.peeled;
+  }
+}

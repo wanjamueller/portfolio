@@ -1,6 +1,9 @@
+@use '../../../../../public/assets/styles/base/variables' as *;
+@use '../../../../../public/assets/styles/base/mixins' as mixin;
+
 .projects-content {
   padding: 144px calc(50% - 660px);
-  height: 700px;
+  min-height: 700px;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -16,6 +19,22 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+      width: 50%;
+
+      .projects {
+        position: relative;
+        display: inline-block;
+
+        .brush-mark {
+          position: absolute;
+          left: 0px;
+          bottom: -20px;
+          width: 100%;
+          height: 20px;
+          clip-path: inset(0 0 100% 0); // hidden
+          animation: draw-mark 4s ease-in-out infinite;
+        }
+      }
     }
   }
 
@@ -25,10 +44,105 @@
     flex-direction: column;
     gap: 32px;
 
-    .loco-text {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+    // .loco-image:hover {
+    //   width: 700px;
+    //   overflow: hidden;
+    // }
+
+    .loco-image {
+      position: relative;
+      overflow: hidden; // crops the zoomed image
+      border-radius: 24px;
+
+      img {
+        display: block;
+        width: 100%;
+        transition: transform 0.5s ease;
+      }
+
+      // dark gradient at the bottom
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgb(0 0 0 / 80%), transparent 50%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+      }
+
+      .details-btn {
+        position: absolute;
+        right: 32px;
+        bottom: 32px;
+        z-index: 1;
+        border-color: $off-white;
+        background-color: transparent;
+        color: $off-white;
+
+        @include mixin.button;
+
+        opacity: 0;
+        transform: translateY(20px); // hidden start position
+        transition:
+          opacity 0.4s ease-in-out,
+          transform 0.4s ease-in-out,
+          box-shadow 0.4s ease-in-out,
+          background-color 0.15s ease-in-out;
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+
+        &::after {
+          opacity: 1;
+        }
+
+        .details-btn {
+          opacity: 1;
+          transform: translate(0, 0); // visible, resting on its shadow
+
+          // press into the shadow
+          &:hover {
+            transform: translate(3px, 4px);
+            box-shadow: 0 0 0 $off-white;
+            background-color: $orange;
+            transition-duration: 0.15s; // snappy press
+          }
+        }
+        .loco-text {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+        }
+      }
     }
+  }
+}
+
+@keyframes draw-mark {
+  0% {
+    clip-path: inset(0 100% 0 0); // hidden
+  }
+  16.67% {
+    clip-path: inset(0 0 0 0); // drawn after 1s
+  }
+  66.67% {
+    clip-path: inset(0 0 0 0); // stays for 3s
+  }
+  83.33% {
+    clip-path: inset(0 100% 0 0); // erased after 1s
+  }
+  100% {
+    clip-path: inset(0 100% 0 0); // gone for 1s
+  }
+}
+
+@media (hover: none) {
+  .details-btn {
+    opacity: 1;
+    transform: none;
   }
 }

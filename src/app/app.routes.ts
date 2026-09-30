@@ -4,9 +4,11 @@ import { Skills } from './layout/main/skills/skills';
 import { Projects } from './layout/main/projects/projects';
 import { Contact } from './layout/main/contact/contact';
 import { Main } from './layout/main/main';
+import { Hero } from './layout/main/hero/hero';
 
 export const routes: Routes = [
   { path: '', component: Main },
+  { path: 'hero', component: Hero },
   { path: 'about', component: About },
   { path: 'skills', component: Skills },
   { path: 'projects', component: Projects },

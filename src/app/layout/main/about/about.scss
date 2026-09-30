@@ -1,3 +1,6 @@
+@use '../../../../../public/assets/styles/base/variables' as *;
+@use '../../../../../public/assets/styles/base/mixins' as mixin;
+
 .about-wrapper {
   height: 720px;
   width: 100%;
@@ -98,13 +101,57 @@
     width: 40dvw;
     max-width: 550px;
 
+    .about-title {
+      position: relative;
+      display: inline-block;
+
+      .brush-line {
+        position: absolute;
+        left: 0;
+        bottom: -20px;
+        width: 60%;
+        clip-path: inset(0 100% 0 0); // hidden
+        animation: draw-line 5s ease-in-out infinite;
+      }
+    }
+
     button {
       background: none;
-      border: 1px solid black;
-      border-radius: 100px;
-      height: 40px;
-      padding: 12px 24px;
       align-self: flex-end;
+
+      @include mixin.button;
+
+      transition:
+        background-color 0.3s ease-in-out,
+        color 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out,
+        transform 0.3s ease-in-out;
     }
+
+    button:hover {
+      background-color: $orange;
+      color: $off-white;
+      box-shadow: none;
+      transform: translate(3px, 4px);
+      border-color: $black;
+    }
+  }
+}
+
+@keyframes draw-line {
+  0% {
+    clip-path: inset(0 100% 0 0); // hidden
+  }
+  16.67% {
+    clip-path: inset(0 0 0 0); // drawn after 1s
+  }
+  66.67% {
+    clip-path: inset(0 0 0 0); // stays for 3s
+  }
+  83.33% {
+    clip-path: inset(0 100% 0 0); // erased after 1s
+  }
+  100% {
+    clip-path: inset(0 100% 0 0); // gone for 1s
   }
 }
