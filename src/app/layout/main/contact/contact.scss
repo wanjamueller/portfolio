@@ -11,7 +11,7 @@
   .contact-content {
     padding: 144px calc(50% - 600px);
     width: 100%;
-    color: white;
+    color: $off-white;
     display: flex;
     justify-content: space-between;
 
@@ -51,10 +51,14 @@
           background: none;
           padding: 0px 24px 16px 24px;
           border: none;
-          font-size: 1.125rem;
+          font-size: 1.3rem;
+          color: $off-white;
+          font-family: 'Kalam';
+          display: flex;
+          align-items: center;
 
           &::placeholder {
-            color: white;
+            color: $off-white;
             opacity: 1;
           }
         }
@@ -80,17 +84,44 @@
         gap: 8px;
         align-items: start;
 
-        input[type='checkbox'] {
-          appearance: none;
-          border: 2px solid rgba(51, 85, 255, 1);
+        .frame {
+          position: relative; // anchor for the tick
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
           border-radius: 2px;
-          width: 18px;
-          height: 18px;
-          background: none;
-          cursor: pointer;
           display: grid;
           place-content: center;
-          flex-shrink: 0;
+
+          &:hover {
+            background-color: rgba($blue, 0.3);
+          }
+
+          input[type='checkbox'] {
+            appearance: none;
+            margin: 0; // browsers add a default margin
+            width: 18px;
+            height: 18px;
+            border: 2px solid $blue;
+            border-radius: 2px;
+            background: none;
+            cursor: pointer;
+          }
+
+          .tick {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 25px;
+            transform: translate(-30%, -65%); // exactly centered on the box
+            pointer-events: none; // clicks pass through to the input
+            opacity: 0;
+            transition: opacity 0.15s ease;
+          }
+
+          input:checked + .tick {
+            opacity: 1;
+          }
         }
       }
 
