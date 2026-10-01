@@ -2,33 +2,32 @@
 @use '../../../../../public/assets/styles/base/mixins' as mixin;
 
 .hero-wrapper {
-  // width: 100%;
-  height: 900px;
-  min-height: 100vh;
-  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: clamp(700px, calc(100vw * 900 / 1440), 1100px);
   background-image: url(../../../../../public/assets/img/01_backgrounds/01_hero.webp);
   background-size: cover; /* fills width AND height, crops overflow */
-  background-position: center;
+  background-position: bottom center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-margin-top: 100px;
 
-  .photo {
-    position: absolute;
-    top: 220px;
-    right: calc(50% - 500px);
-    transform: rotate(10deg);
-
-    img {
-      height: 244px;
-    }
-  }
-
   .hero-content {
     width: 100%;
     padding: 0px calc(50% - 660px);
+
+    .photo {
+      position: absolute;
+      top: 220px;
+      right: calc(50% - 500px);
+      transform: rotate(10deg);
+
+      img {
+        height: 244px;
+      }
+    }
 
     .hero-main {
       display: flex;

@@ -18,27 +18,59 @@
         alt="arrow-image"
       />
     </div>
-    <div class="contact-form">
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
       <div class="form-question name-entry">
         <label for="name">What's your name?</label>
-        <input id="name" type="text" placeholder="Your name goes here" />
+        <input id="name" type="text" formControlName="name" placeholder="Your name goes here" />
+        @if (contactForm.get('name')?.touched) {
+          @if (contactForm.get('name')?.hasError('required')) {
+            <p class="contact-form__error">Please enter your name.</p>
+          } @else if (contactForm.get('name')?.hasError('minlength')) {
+            <p class="contact-form__error">Your name needs at least 3 characters.</p>
+          }
+        }
       </div>
       <div class="form-question email-entry">
         <label for="email">What's your email</label>
-        <input id="email" type="email" placeholder="youremail@email.com" />
+        <input id="email" type="email" formControlName="email" placeholder="youremail@email.com" />
+        @if (contactForm.get('email')?.touched) {
+          @if (contactForm.get('email')?.hasError('required')) {
+            <p class="contact-form__error">Please enter your email.</p>
+          } @else if (contactForm.get('email')?.hasError('email')) {
+            <p class="contact-form__error">Please enter a valid email.</p>
+          }
+        }
       </div>
       <div class="form-question help-entry">
         <label for="help">How can I help you?</label>
-        <input id="help" type="text" placeholder="Hi Wanja, I am interested in..." />
+        <input
+          id="help"
+          type="text"
+          formControlName="help"
+          placeholder="Hi Wanja, I am interested in..."
+        />
+        @if (contactForm.get('help')?.touched) {
+          @if (contactForm.get('help')?.hasError('required')) {
+            <p class="contact-form__error">Please enter your request.</p>
+          }
+        }
       </div>
       <div class="privacy">
-        <input type="checkbox" name="privacy" id="" />
-        <label for="privacy"
-          >I've read the privacy policy and agree to the processing of my data as outlined.</label
+        <div class="frame">
+          <input type="checkbox" formControlName="privacy" id="privacy" />
+          <img class="tick" src="../assets/img/00_hand-drawn-lines/05_contact/check.svg" alt="" />
+          @if (contactForm.get('privacy')?.touched) {
+            @if (contactForm.get('privacy')?.hasError('requiredTrue')) {
+              <p class="contact-form__error">Please accept the privacy policy.</p>
+            }
+          }
+        </div>
+        <span
+          >I've read the privacy policy and agree to the processing of my data as outlined.</span
         >
       </div>
-      <button>Send</button>
-    </div>
+      <button type="submit">Send</button>
+    </form>
     <div class="stamp"></div>
   </div>
 </section>
