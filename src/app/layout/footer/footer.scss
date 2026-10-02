@@ -8,37 +8,12 @@ footer {
   display: block;
   margin-top: -220px;
   margin-bottom: 56px;
-  padding: 0px calc(50% - 600px);
+  padding: 0px 72px;
 
   .footer-content {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-
-    // p {
-    //   color: $off-white;
-    // }
-
-    // a {
-    //   text-decoration: none;
-    //   color: $off-white;
-    //   font-size: 1.125rem;
-    //   padding: 12px 28px;
-    //   border-radius: 999px;
-
-    //   background: linear-gradient($blue, $blue) no-repeat bottom / 100% 0%; // bottom → top
-    //   transition: background-size 0.1s ease;
-
-    //   img {
-    //     position: relative;
-    //     top: -20px;
-    //     right: -80%;
-    //   }
-
-    //   &:hover {
-    //     background-size: 100% 100%;
-    //   }
-    // }
 
     .footer-link {
       position: relative; // parent for the icon
@@ -114,5 +89,11 @@ footer {
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  footer {
+    padding: 0px calc(50% - 600px);
   }
 }
