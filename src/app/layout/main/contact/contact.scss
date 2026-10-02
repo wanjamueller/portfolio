@@ -161,8 +161,10 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .contact-content {
-    padding: 144px calc(50% - 600px);
+  .contact-wrapper {
+    .contact-content {
+      padding: 144px calc(50% - 660px);
+    }
   }
 }
 
