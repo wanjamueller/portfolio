@@ -3,7 +3,7 @@
 
 header {
   height: 100px;
-  padding: 19px calc(50% - 648px);
+  padding: 19px 72px;
   width: 100%;
   position: fixed;
   display: flex;
@@ -153,5 +153,11 @@ header {
         position: absolute;
       }
     }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  header {
+    padding: 19px calc(50% - 648px);
   }
 }
