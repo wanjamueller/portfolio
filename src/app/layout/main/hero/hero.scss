@@ -108,7 +108,6 @@
         color: $off-white;
 
         p {
-          // font-size: 128px;
           font-size: clamp(4rem, -0.5714rem + 9.5238vw, 8rem);
           font-weight: 700;
         }
@@ -178,6 +177,7 @@
 
       .photo {
         right: calc(50% - 430px);
+        top: clamp(8.75rem, -12.0192rem + 23.0769vw, 12.5rem);
       }
 
       .social {

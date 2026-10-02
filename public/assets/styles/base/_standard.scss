@@ -33,5 +33,13 @@ button {
 }
 
 a {
+  cursor: pointer;
   text-decoration: none;
+  font-size: 1.125rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1440px) {
+  a {
+    font-size: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+  }
 }
