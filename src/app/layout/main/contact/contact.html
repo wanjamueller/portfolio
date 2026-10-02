@@ -27,6 +27,10 @@
             <p class="contact-form__error">Please enter your name.</p>
           } @else if (contactForm.get('name')?.hasError('minlength')) {
             <p class="contact-form__error">Your name needs at least 3 characters.</p>
+          } @else if (contactForm.get('name')?.hasError('maxlength')) {
+            <p class="contact-form__error">max. 40 characters.</p>
+          } @else if (contactForm.get('name')?.hasError('pattern')) {
+            <p class="contact-form__error">This pattern does not reflect a real name.</p>
           }
         }
       </div>
@@ -36,8 +40,11 @@
         @if (contactForm.get('email')?.touched) {
           @if (contactForm.get('email')?.hasError('required')) {
             <p class="contact-form__error">Please enter your email.</p>
-          } @else if (contactForm.get('email')?.hasError('email')) {
-            <p class="contact-form__error">Please enter a valid email.</p>
+          } @else if (
+            contactForm.get('email')?.hasError('email') ||
+            contactForm.get('email')?.hasError('pattern')
+          ) {
+            <p class="contact-form__error">Please enter a valid email address.</p>
           }
         }
       </div>
@@ -52,6 +59,10 @@
         @if (contactForm.get('help')?.touched) {
           @if (contactForm.get('help')?.hasError('required')) {
             <p class="contact-form__error">Please enter your request.</p>
+          } @else if (contactForm.get('help')?.hasError('minLetters')) {
+            <p class="contact-form__error">Your request needs at least 10 letters.</p>
+          } @else if (contactForm.get('help')?.hasError('maxlength')) {
+            <p class="contact-form__error">max. lenth is 200 letters.</p>
           }
         }
       </div>
