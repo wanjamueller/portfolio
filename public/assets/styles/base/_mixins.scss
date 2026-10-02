@@ -20,3 +20,12 @@
   box-shadow: 3px 4px 0;
   font-size: 1.125rem;
 }
+
+@mixin orangeButton {
+  &:hover {
+    transform: translate(3px, 4px);
+    box-shadow: 0 0 0 $off-white;
+    background-color: $orange;
+    transition-duration: 0.15s; // snappy press
+  }
+}

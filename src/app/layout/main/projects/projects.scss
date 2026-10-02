@@ -2,15 +2,18 @@
 @use '../../../../../public/assets/styles/base/mixins' as mixin;
 
 .projects-content {
-  padding: 144px calc(50% - 660px);
+  padding: 100px 72px;
+  padding-bottom: 0px;
   min-height: 700px;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
   scroll-margin-top: 100px;
 
   .projects-intro {
-    max-width: 550px;
+    width: 48%;
+    // max-width: 550px;
     display: flex;
     flex-direction: column;
     gap: 48px;
@@ -39,7 +42,8 @@
   }
 
   .loco {
-    max-width: 550px;
+    width: 48%;
+    // max-width: 550px;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -105,12 +109,7 @@
           transform: translate(0, 0); // visible, resting on its shadow
 
           // press into the shadow
-          &:hover {
-            transform: translate(3px, 4px);
-            box-shadow: 0 0 0 $off-white;
-            background-color: $orange;
-            transition-duration: 0.15s; // snappy press
-          }
+          @include mixin.orangeButton;
         }
         .loco-text {
           display: flex;
@@ -144,5 +143,12 @@
   .details-btn {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .projects-content {
+    padding: 100px calc(50% - 660px);
+    padding-bottom: 0px;
   }
 }
