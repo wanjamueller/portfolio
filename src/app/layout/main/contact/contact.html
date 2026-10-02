@@ -59,15 +59,17 @@
         <div class="frame">
           <input type="checkbox" formControlName="privacy" id="privacy" />
           <img class="tick" src="../assets/img/00_hand-drawn-lines/05_contact/check.svg" alt="" />
-          @if (contactForm.get('privacy')?.touched) {
-            @if (contactForm.get('privacy')?.hasError('requiredTrue')) {
-              <p class="contact-form__error">Please accept the privacy policy.</p>
-            }
-          }
         </div>
         <span
           >I've read the privacy policy and agree to the processing of my data as outlined.</span
         >
+      </div>
+      <div class="privacy-error">
+        @if (contactForm.get('privacy')?.dirty || contactForm.get('privacy')?.touched) {
+          @if (contactForm.get('privacy')?.hasError('required')) {
+            <p class="error">Please accept the privacy policy.</p>
+          }
+        }
       </div>
       <button type="submit">Send</button>
     </form>
