@@ -9,7 +9,7 @@
   scroll-margin-top: 100px;
 
   .contact-content {
-    padding: 144px calc(50% - 600px);
+    padding: 144px 72px;
     width: 100%;
     color: $off-white;
     display: flex;
@@ -57,6 +57,10 @@
           font-family: 'Kalam';
           display: flex;
           align-items: center;
+
+          &:focus {
+            outline: none;
+          }
 
           &::placeholder {
             color: $off-white;
@@ -153,6 +157,12 @@
       position: absolute;
       top: 80%;
     }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .contact-content {
+    padding: 144px calc(50% - 600px);
   }
 }
 

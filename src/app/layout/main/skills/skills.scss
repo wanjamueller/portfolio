@@ -9,9 +9,10 @@
   scroll-margin-top: 100px;
 
   .skills-content {
-    padding: 144px calc(50% - 600px);
+    padding: 144px 72px;
     color: $off-white;
     width: 100%;
+    position: relative;
 
     .skills-intro {
       display: flex;
@@ -43,13 +44,21 @@
         }
       }
 
-      .skill-text {
-        width: 620px;
-        position: relative;
-        top: -100px;
-        left: 50px;
-        color: black;
-        font-size: 1.125rem;
+      .skill-snippet {
+        width: 50%;
+
+        img {
+          width: 100%;
+        }
+
+        .skill-text {
+          width: 80%;
+          position: relative;
+          top: -100px;
+          left: 50px;
+          color: black;
+          font-size: 1.125rem;
+        }
       }
     }
     .skills {
@@ -89,12 +98,12 @@
       color: inherit;
 
       // positioning
-      position: relative;
+      position: absolute;
       display: inline-block;
       width: 200px;
       transform: rotate(7deg);
       bottom: 180px;
-      left: 1000px;
+      right: 15%;
 
       .frame {
         display: block;
@@ -161,6 +170,12 @@
         }
       }
     }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .skills-content {
+    padding: 144px calc(50% - 600px);
   }
 }
 
