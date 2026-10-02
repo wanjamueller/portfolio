@@ -35,7 +35,7 @@
       flex-direction: column;
       width: 100%;
 
-      button {
+      a {
         background: none;
         color: $off-white;
 
@@ -43,7 +43,63 @@
       }
 
       .hello {
+        width: auto;
+        height: auto;
+        position: relative;
         align-self: start;
+        background: linear-gradient($blue, $blue) no-repeat center / 0% 100%;
+        transition: background-size 0.1s ease;
+
+        .swap {
+          display: inline-grid; // both texts share one cell, stacked
+          overflow: hidden; // hides the text that's slid out
+          max-width: 96px;
+          transition: max-width 0.3s ease;
+
+          span {
+            grid-area: 1 / 1;
+            justify-self: start;
+            white-space: nowrap;
+            transition: opacity 0.3s ease;
+          }
+
+          .swap__hover {
+            opacity: 0;
+          }
+        }
+
+        .hello-icon {
+          position: absolute;
+          top: -30px;
+          right: -4px;
+          width: 28px;
+          opacity: 0;
+          transform: translateX(-60px) rotate(-180deg); // start: 60px to the left, turned back half a rotation
+          transition:
+            opacity 0.3s ease,
+            transform 0.3s ease-out;
+        }
+
+        &:hover,
+        &:focus-visible {
+          background-size: 100% 100%;
+          .hello-icon {
+            opacity: 1;
+            transform: translateX(0) rotate(0deg); // rolls right and stops in its current spot
+          }
+
+          .swap {
+            max-width: 172px; // ≈ width of "Hi. I'm Wanja Mueller"
+
+            .swap__default {
+              opacity: 0;
+            }
+
+            .swap__hover {
+              opacity: 1;
+            }
+          }
+        }
       }
 
       .hero-text {

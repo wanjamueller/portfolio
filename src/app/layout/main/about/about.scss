@@ -115,9 +115,10 @@
       }
     }
 
-    button {
+    a {
       background: none;
       align-self: flex-end;
+      color: $black;
 
       @include mixin.button;
 
@@ -128,7 +129,7 @@
         transform 0.3s ease-in-out;
     }
 
-    button:hover {
+    a:hover {
       background-color: $orange;
       color: $off-white;
       box-shadow: none;

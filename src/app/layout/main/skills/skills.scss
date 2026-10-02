@@ -174,8 +174,10 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .skills-content {
-    padding: 144px calc(50% - 600px);
+  .skills-wrapper {
+    .skills-content {
+      padding: 144px calc(50% - 660px);
+    }
   }
 }
 
