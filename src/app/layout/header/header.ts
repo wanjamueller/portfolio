@@ -12,6 +12,6 @@ export class Header {
 
   @HostListener('window:scroll')
   onScroll() {
-    this.scrolled = window.scrollY > 100; // your pixel threshold
+    this.scrolled = window.scrollY > 100; // pixel after blur starts
   }
 }
