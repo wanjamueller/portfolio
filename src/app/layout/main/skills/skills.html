@@ -27,62 +27,68 @@
         </div>
       </div>
     </div>
-    <div class="skills">
-      <div class="html skill">
-        <img src="../assets/img/logo/HTML.svg" alt="html-logo" />
-        <p>HTML</p>
+    <div class="skill-container">
+      <div class="skills">
+        <div class="html skill">
+          <img src="../assets/img/logo/HTML.svg" alt="html-logo" />
+          <p>HTML</p>
+        </div>
+        <div class="css skill">
+          <img src="../assets/img/logo/CSS.svg" alt="css-logo" />
+          <p>CSS</p>
+        </div>
+        <div class="java skill">
+          <img src="../assets/img/logo/Js.svg" alt="js-logo" />
+          <p>JavaScript</p>
+        </div>
+        <div class="type skill">
+          <img src="../assets/img/logo/Ts.svg" alt="ts-logo" />
+          <p>TypeScript</p>
+        </div>
+        <div class="angular skill">
+          <img src="../assets/img/logo/Angular.svg" alt="angular-logo" />
+          <p>Angular</p>
+        </div>
+        <div class="supabase skill">
+          <img src="../assets/img/logo/Supabase.svg" alt="supabase-lgog" />
+          <p>Supabase</p>
+        </div>
+        <div class="git skill">
+          <img src="../assets/img/logo/Git-skill.svg" alt="git-logo" />
+          <p>Git</p>
+        </div>
+        <div class="api skill">
+          <img src="../assets/img/logo/Rest-Api.svg" alt="rest-api-logo" />
+          <p>REST-API</p>
+        </div>
+        <div class="scrum skill">
+          <img src="../assets/img/logo/Scrum.svg" alt="scrum-logo" />
+          <p>Scrum</p>
+        </div>
+        <div class="design skill">
+          <img src="../assets/img/logo/design.svg" alt="scrum-logo" />
+          <p>Material Design</p>
+        </div>
       </div>
-      <div class="css skill">
-        <img src="../assets/img/logo/CSS.svg" alt="css-logo" />
-        <p>CSS</p>
-      </div>
-      <div class="java skill">
-        <img src="../assets/img/logo/Js.svg" alt="js-logo" />
-        <p>JavaScript</p>
-      </div>
-      <div class="type skill">
-        <img src="../assets/img/logo/Ts.svg" alt="ts-logo" />
-        <p>TypeScript</p>
-      </div>
-      <div class="angular skill">
-        <img src="../assets/img/logo/Angular.svg" alt="angular-logo" />
-        <p>Angular</p>
-      </div>
-      <div class="supabase skill">
-        <img src="../assets/img/logo/Supabase.svg" alt="supabase-lgog" />
-        <p>Supabase</p>
-      </div>
-      <div class="git skill">
-        <img src="../assets/img/logo/Git-skill.svg" alt="git-logo" />
-        <p>Git</p>
-      </div>
-      <div class="api skill">
-        <img src="../assets/img/logo/Rest-Api.svg" alt="rest-api-logo" />
-        <p>REST-API</p>
-      </div>
-      <div class="scrum skill">
-        <img src="../assets/img/logo/Scrum.svg" alt="scrum-logo" />
-        <p>Scrum</p>
-      </div>
+      <button class="peel" [class.peeled]="peeled" (click)="togglePeel()" aria-label="Peel sticker">
+        <img
+          class="frame frame-1"
+          src="assets/img/03_stickers/01_skills-peel-off/1_default.webp"
+          alt=""
+        />
+        <img
+          class="frame frame-2"
+          src="assets/img/03_stickers/01_skills-peel-off/2_transition.webp"
+          alt=""
+        />
+        <img
+          class="frame frame-3"
+          src="assets/img/03_stickers/01_skills-peel-off/3_final.webp"
+          alt=""
+        />
+        <img class="arrow" src="assets/img/03_stickers/arrow.webp" alt="" />
+        <span class="label">Pull to peel</span>
+      </button>
     </div>
-    <button class="peel" [class.peeled]="peeled" (click)="togglePeel()" aria-label="Peel sticker">
-      <img
-        class="frame frame-1"
-        src="assets/img/03_stickers/01_skills-peel-off/1_default.webp"
-        alt=""
-      />
-      <img
-        class="frame frame-2"
-        src="assets/img/03_stickers/01_skills-peel-off/2_transition.webp"
-        alt=""
-      />
-      <img
-        class="frame frame-3"
-        src="assets/img/03_stickers/01_skills-peel-off/3_final.webp"
-        alt=""
-      />
-      <img class="arrow" src="assets/img/03_stickers/arrow.webp" alt="" />
-      <span class="label">Pull to peel</span>
-    </button>
   </div>
 </section>
