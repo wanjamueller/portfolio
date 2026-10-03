@@ -2,104 +2,96 @@
 @use '../../../../../public/assets/styles/base/mixins' as mixin;
 
 .about-wrapper {
-  height: 720px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 144px 120px;
-  gap: 50px;
+  padding-block: clamp(4.5rem, -0.6429rem + 10.7143vw, 9rem); // 72px → 144px
+  padding-inline: clamp(1.5rem, -5.3571rem + 14.2857vw, 7.5rem); // 24px → 120px
+  gap: clamp(2rem, -2.8571rem + 10.119vw, 6.25rem); // 32px → 100px
   scroll-margin-top: 100px;
 
+  // ── left: paper snippets ─────────────────────────────
   .about-snippets {
-    width: 40dvw;
+    width: clamp(18.75rem, 0.1786rem + 38.6905vw, 35rem);
     max-width: 550px;
+    container-type: inline-size; // children size themselves by this width (cqw)
+    display: flex;
+    flex-direction: column;
 
-    .yellow-snippet {
-      position: relative;
-      top: 30px;
-      transform: rotate(-3deg);
-      z-index: 3;
+    .snippet {
+      position: relative; // anchor for the text on top
+    }
 
-      > img {
-        position: relative;
-        top: 65px;
+    .paper {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .details {
+      position: absolute;
+      inset: 0; // covers the paper exactly
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3cqw;
+
+      p {
+        font-size: clamp(1rem, 4.4cqw, 1.5rem); // 16px → 24px
+        color: $off-white;
       }
 
-      .yellow-details {
-        position: relative;
-        top: -55px;
-        z-index: 4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
+      .icon {
+        height: 8.2cqw; // 45px at 550px width
+      }
+    }
 
-        p {
-          font-size: 1.5rem;
-          color: white;
-        }
+    .yellow-snippet {
+      rotate: -3deg;
+      z-index: 3;
+
+      .details {
+        translate: 0 -2cqw; // nudge text up, scales with the note
       }
     }
 
     .blue-snippet {
-      position: relative;
+      margin-top: -6%; // % of container width → overlap scales automatically
       z-index: 2;
-
-      > img {
-        position: relative;
-      }
-
-      .blue-details {
-        position: relative;
-        top: -110px;
-        z-index: 4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-
-        p {
-          font-size: 1.5rem;
-          color: white;
-        }
-      }
     }
 
     .orange-snippet {
-      position: relative;
-      top: -55px;
-      transform: rotate(3deg);
+      margin-top: -6%;
+      rotate: 3deg;
       z-index: 1;
-
-      > img {
-        position: relative;
-        top: -30px;
-      }
-
-      .orange-details {
-        position: relative;
-        top: -140px;
-        z-index: 4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-
-        p {
-          font-size: 1.5rem;
-          color: white;
-        }
-      }
     }
   }
 
+  // ── right: about me text ─────────────────────────────
   .about-me {
     display: flex;
     flex-direction: column;
-    gap: 48px;
-    width: 40dvw;
+    gap: clamp(1.5rem, -0.2143rem + 3.5714vw, 3rem); // 24px → 48px
+    width: clamp(18.75rem, 0.1786rem + 38.6905vw, 35rem);
     max-width: 550px;
+
+    h4 {
+      font-size: clamp(1rem, 0.8571rem + 0.2976vw, 1.125rem); // 16px → 18px
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 0.7857rem + 3.5714vw, 4rem); // 40px → 64px
+    }
+
+    p {
+      font-size: clamp(1rem, 0.8571rem + 0.2976vw, 1.125rem); // 16px → 18px
+      line-height: 1.5;
+
+      & + p {
+        margin-top: 1em;
+      }
+    }
 
     .about-title {
       position: relative;
@@ -108,7 +100,7 @@
       .brush-line {
         position: absolute;
         left: 0;
-        bottom: -20px;
+        bottom: -0.35em; // relative to the heading size
         width: 60%;
         clip-path: inset(0 100% 0 0); // hidden
         animation: draw-line 5s ease-in-out infinite;
@@ -127,14 +119,15 @@
         color 0.3s ease-in-out,
         box-shadow 0.3s ease-in-out,
         transform 0.3s ease-in-out;
-    }
 
-    a:hover {
-      background-color: $orange;
-      color: $off-white;
-      box-shadow: none;
-      transform: translate(3px, 4px);
-      border-color: $black;
+      &:hover,
+      &:focus-visible {
+        background-color: $orange;
+        color: $off-white;
+        box-shadow: none;
+        transform: translate(3px, 4px);
+        border-color: $black;
+      }
     }
   }
 }
