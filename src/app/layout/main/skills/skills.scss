@@ -40,7 +40,8 @@
             position: absolute;
             left: -30px;
             bottom: 1px;
-            width: 120%;
+            // width:120%;
+            width: clamp(16.25rem, 15.3214rem + 4.6429vw, 19.5rem);
             clip-path: inset(100% 0 0 0); // hidden
             animation: draw-circle 5s ease-in-out infinite;
           }
