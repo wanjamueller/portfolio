@@ -40,14 +40,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    container-type: inline-size;
 
     .ref {
       position: relative; // parent for the layers inside
-      width: 34%;
+      // width: 34%;
 
       .ref-bg {
         display: block;
-        height: 100%;
+        height: auto;
         width: 100%;
       }
 
@@ -73,7 +74,6 @@
       }
 
       .ref-source {
-        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -84,6 +84,21 @@
         display: flex;
         align-items: center;
         gap: 4px;
+        line-height: 1;
+        color: $black;
+        transition: color 0.2s ease;
+
+        .linkedin-icon {
+          width: 18px;
+          height: 18px;
+          background-color: currentColor; // icon = same color as the text
+          mask: url('/assets/img/icons/linkedin_black.svg') center / contain no-repeat;
+        }
+
+        &:hover,
+        &:focus-visible {
+          color: $off-white; // text AND icon change together
+        }
       }
 
       &:hover {
@@ -121,6 +136,56 @@
 
       &:hover {
         z-index: 5;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 950px) {
+  .reference-content {
+    .references {
+      .ref {
+        width: 300px;
+        border-radius: 20px; // paper corners get cropped → round the card itself
+        overflow: hidden; // hides the cropped paper sides
+
+        .ref-bg {
+          position: absolute;
+          inset: 0;
+          height: 100%; // fills the card, whatever height the text needs
+          object-fit: cover; // crops left/right instead of stretching
+        }
+
+        .drawn-line {
+          object-fit: fill; // hover outline follows the new card shape
+        }
+
+        .ref-card {
+          position: relative; // back in the flow → the text decides the card height
+          inset: auto;
+          padding: 32px 28px;
+          gap: 48px; // space between quote and name row
+        }
+
+        .ref-source {
+          position: static; // back in the flow, below the quote
+          padding: 0;
+        }
+
+        .ref-link {
+          position: static;
+          padding: 0;
+        }
+      }
+
+      // narrower cards → smaller overlap and offsets
+      .ref-one {
+        margin-top: -40px;
+        margin-right: -90px;
+      }
+
+      .ref-three {
+        margin-left: -90px;
       }
     }
   }
