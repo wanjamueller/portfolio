@@ -9,7 +9,7 @@
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: clamp(3rem, 2.7143rem + 1.4286vw, 4rem); // 3-4rem
   font-weight: $bold-weight;
 }
 
@@ -42,4 +42,12 @@ a {
   a {
     font-size: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
   }
+
+  p {
+    font-size: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+  }
+}
+
+.d_none {
+  display: none;
 }
