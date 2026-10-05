@@ -6,6 +6,7 @@ import { Contact } from './layout/main/contact/contact';
 import { Main } from './layout/main/main';
 import { Hero } from './layout/main/hero/hero';
 import { Imprint } from './layout/imprint/imprint';
+import { Pollo } from './layout/pollo/pollo';
 
 export const routes: Routes = [
   { path: '', component: Main },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'projects', component: Projects },
   { path: 'contact', component: Contact },
   { path: 'imprint', component: Imprint },
+  { path: 'pollo', component: Pollo },
   { path: '**', redirectTo: '' },
 ];
