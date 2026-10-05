@@ -92,7 +92,8 @@
           width: 18px;
           height: 18px;
           background-color: currentColor; // icon = same color as the text
-          mask: url('/assets/img/icons/linkedin_black.svg') center / contain no-repeat;
+          mask: url('../../../../../public/assets/img/icons/linkedin_black.svg') center / contain
+            no-repeat;
         }
 
         &:hover,

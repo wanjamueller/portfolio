@@ -5,7 +5,7 @@
   width: 70px;
   height: 70px;
   background-color: $blue;
-  mask: url('/assets/img/logo/initials_blue.svg') center / contain no-repeat;
+  mask: url('../../../assets/img/logo/initials_blue.svg') center / contain no-repeat;
   transition: background-color 0.3s ease;
 
   &:hover {
