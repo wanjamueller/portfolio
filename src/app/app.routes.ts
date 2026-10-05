@@ -5,7 +5,7 @@ import { Projects } from './layout/main/projects/projects';
 import { Contact } from './layout/main/contact/contact';
 import { Main } from './layout/main/main';
 import { Hero } from './layout/main/hero/hero';
-import { Header } from './layout/header/header';
+import { Imprint } from './layout/imprint/imprint';
 
 export const routes: Routes = [
   { path: '', component: Main },
@@ -14,5 +14,6 @@ export const routes: Routes = [
   { path: 'skills', component: Skills },
   { path: 'projects', component: Projects },
   { path: 'contact', component: Contact },
+  { path: 'imprint', component: Imprint },
   { path: '**', redirectTo: '' },
 ];

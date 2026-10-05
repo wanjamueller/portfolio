@@ -1,12 +1,11 @@
 @use '../../../../public/assets/styles/base/variables' as *;
 @use '../../../../public/assets/styles/base/mixins' as mixin;
-@use '../../../../public/assets/styles/base/standard';
 
 footer {
   height: 132px;
   position: relative;
   display: block;
-  margin-top: -220px;
+  margin-top: -220px; // overlaps the dark section above (main page)
   margin-bottom: 56px;
   padding: 0px 72px;
 
@@ -23,7 +22,9 @@ footer {
       padding: 8px 20px;
       border-radius: 999px;
       background: linear-gradient($blue, $blue) no-repeat bottom / 100% 0%;
-      transition: background-size 0.1s ease;
+      transition:
+        background-size 0.1s ease,
+        color 0.1s ease;
 
       .footer-icon {
         position: absolute;
@@ -31,7 +32,7 @@ footer {
         right: -4px;
         width: 28px;
         opacity: 0;
-        transform: translateX(-44px) rotate(-180deg); // start: 88px to the left, turned back one full rotation
+        transform: translateX(-44px) rotate(-180deg); // start: left, turned back
         transition:
           opacity 0.3s ease,
           transform 0.6s ease-out;
@@ -40,9 +41,10 @@ footer {
       &:hover,
       &:focus-visible {
         background-size: 100% 100%;
+
         .footer-icon {
           opacity: 1;
-          transform: translateX(0) rotate(0deg); // rolls right and stops in its current spot
+          transform: translateX(0) rotate(0deg); // rolls right and stops in place
         }
       }
     }
@@ -79,13 +81,42 @@ footer {
           bottom: -10px;
           width: 100px;
           height: 10px;
-          clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
+          clip-path: inset(0 100% 0 0); // hidden
           transition: clip-path 0.4s ease;
         }
 
         &:hover .brush-mark,
         &:focus-visible .brush-mark {
           clip-path: inset(0 0 0 0); // fully visible
+        }
+      }
+    }
+  }
+
+  // ── light version (imprint page) ───────────────────
+  &.light {
+    margin-top: -350px; // no dark section above to overlap
+
+    .footer-content {
+      .footer-link {
+        color: $black;
+
+        .footer-icon {
+          display: none;
+          // filter: invert(1); // white icons → black on the light background
+        }
+
+        &:hover,
+        &:focus-visible {
+          color: $off-white; // white text on the blue pill
+        }
+      }
+
+      .copyrights {
+        color: $black;
+
+        a {
+          color: $black;
         }
       }
     }
