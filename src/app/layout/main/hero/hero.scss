@@ -1,5 +1,6 @@
-@use '../../../../../public/assets/styles/base/variables' as *;
-@use '../../../../../public/assets/styles/base/mixins' as mixin;
+// @use '../../../../../public/assets/styles/base/variables' as *;
+// @use '../../../../../public/assets/styles/base/mixins' as mixin;
+@use '../../../../../public/assets/styles/base/' as *;
 
 .hero-wrapper {
   position: relative;
@@ -39,7 +40,7 @@
         background: none;
         color: $off-white;
 
-        @include mixin.button;
+        @include button;
       }
 
       .hello {
@@ -149,7 +150,7 @@
       .touch {
         align-self: end;
 
-        @include mixin.orangeButton;
+        @include orangeButton;
       }
     }
   }
