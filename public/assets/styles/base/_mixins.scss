@@ -1,4 +1,5 @@
 @use './variables' as *;
+@use 'sass:math';
 
 @mixin logo {
   display: block;
@@ -27,5 +28,29 @@
     box-shadow: 0 0 0 $off-white;
     background-color: $orange;
     transition-duration: 0.15s; // snappy press
+  }
+}
+
+@mixin responsive($size, $direction: width, $value: max) {
+  @media screen and (#{$value}-#{$direction}: to-px($size)) {
+    @content;
+  }
+}
+
+@mixin mobile($width: 768px) {
+  @include responsive($width, width, max) {
+    @content;
+  }
+}
+
+@mixin tablet($width: 1024px) {
+  @include responsive($width, width, max) {
+    @content;
+  }
+}
+
+@mixin desktop($width: 1025px) {
+  @include responsive($width, width, min) {
+    @content;
   }
 }
