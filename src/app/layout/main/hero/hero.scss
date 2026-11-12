@@ -112,12 +112,37 @@
           font-weight: 700;
         }
 
-        .front {
-          text-align: left;
-        }
+        .dev p,
+        .front p {
+          white-space: nowrap; // stops the word breaking between letters
+          -webkit-font-smoothing: antialiased;
+          cursor: default;
 
-        .dev {
-          text-align: right;
+          .char {
+            display: inline-grid; // both spans share the same grid cell
+
+            > span {
+              grid-area: 1 / 1;
+              text-align: center;
+            }
+
+            .char__ghost {
+              visibility: hidden; // invisible, but keeps the original letter's width
+            }
+
+            .char__shown {
+              transition: color 0.35s ease;
+            }
+
+            &:hover .char__shown {
+              color: #f7c518;
+              text-transform: uppercase;
+            }
+
+            &.char--upper:hover .char__shown {
+              text-transform: lowercase;
+            }
+          }
         }
       }
 

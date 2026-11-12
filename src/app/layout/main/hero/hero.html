@@ -13,10 +13,32 @@
       >
       <div class="hero-text">
         <div class="front">
-          <p>Frontend</p>
+          <p aria-label="Frontend">
+            @for (char of frontChars; track $index) {
+              <span
+                class="char"
+                [class.char--upper]="char === char.toUpperCase()"
+                aria-hidden="true"
+              >
+                <span class="char__ghost">{{ char }}</span>
+                <span class="char__shown">{{ char }}</span>
+              </span>
+            }
+          </p>
         </div>
         <div class="dev">
-          <p>DEVELOPER</p>
+          <p aria-label="DEVELOPER">
+            @for (char of devChars; track $index) {
+              <span
+                class="char"
+                [class.char--upper]="char === char.toUpperCase()"
+                aria-hidden="true"
+              >
+                <span class="char__ghost">{{ char }}</span>
+                <span class="char__shown">{{ char }}</span>
+              </span>
+            }
+          </p>
         </div>
       </div>
       <a routerLink="/" fragment="contact" class="touch">Get in Touch</a>

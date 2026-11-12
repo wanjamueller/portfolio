@@ -7,4 +7,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './hero.scss',
   templateUrl: './hero.html',
 })
-export class Hero {}
+export class Hero {
+  devChars = 'DEVELOPER'.split('');
+  frontChars = 'Frontend'.split('');
+}
