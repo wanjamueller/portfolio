@@ -126,9 +126,14 @@
               text-shadow 0.35s ease;
 
             &:hover {
-              transform: scale(1.18) translateY(-4px);
-              color: $orange; // swap in your accent variable
-              text-shadow: 0 0 24px rgba($orange, 0.6);
+              // transform: scale(1.18) translateY(-4px);
+              color: #f7c518; // swap in your accent variable
+              // text-shadow: 0 0 24px rgba($orange, 0.6);
+              text-transform: uppercase; // lowercase letters become capitals
+            }
+
+            &.char--upper:hover {
+              text-transform: lowercase; // capitals become lowercase
             }
           }
         }

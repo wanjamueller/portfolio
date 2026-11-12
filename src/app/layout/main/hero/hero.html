@@ -15,14 +15,24 @@
         <div class="front">
           <p aria-label="Frontend">
             @for (char of frontChars; track $index) {
-              <span class="char" aria-hidden="true">{{ char }}</span>
+              <span
+                class="char"
+                [class.char--upper]="char === char.toUpperCase()"
+                aria-hidden="true"
+                >{{ char }}</span
+              >
             }
           </p>
         </div>
         <div class="dev">
           <p aria-label="DEVELOPER">
             @for (char of devChars; track $index) {
-              <span class="char" aria-hidden="true">{{ char }}</span>
+              <span
+                class="char"
+                [class.char--upper]="char === char.toUpperCase()"
+                aria-hidden="true"
+                >{{ char }}</span
+              >
             }
           </p>
         </div>
