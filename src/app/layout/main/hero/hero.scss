@@ -112,12 +112,25 @@
           font-weight: 700;
         }
 
-        .front {
-          text-align: left;
-        }
+        .dev p,
+        .front p {
+          white-space: nowrap; // stops the word breaking between letters
+          -webkit-font-smoothing: antialiased;
+          cursor: default;
 
-        .dev {
-          text-align: right;
+          .char {
+            display: inline-block; // required, because transform doesn't work on inline elements
+            transition:
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s ease,
+              text-shadow 0.35s ease;
+
+            &:hover {
+              transform: scale(1.18) translateY(-4px);
+              color: $orange; // swap in your accent variable
+              text-shadow: 0 0 24px rgba($orange, 0.6);
+            }
+          }
         }
       }
 

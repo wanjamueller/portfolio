@@ -13,10 +13,18 @@
       >
       <div class="hero-text">
         <div class="front">
-          <p>Frontend</p>
+          <p aria-label="Frontend">
+            @for (char of frontChars; track $index) {
+              <span class="char" aria-hidden="true">{{ char }}</span>
+            }
+          </p>
         </div>
         <div class="dev">
-          <p>DEVELOPER</p>
+          <p aria-label="DEVELOPER">
+            @for (char of devChars; track $index) {
+              <span class="char" aria-hidden="true">{{ char }}</span>
+            }
+          </p>
         </div>
       </div>
       <a routerLink="/" fragment="contact" class="touch">Get in Touch</a>
