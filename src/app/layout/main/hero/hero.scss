@@ -20,8 +20,6 @@
 
     .photo {
       position: absolute;
-      top: 140px;
-      right: 20%;
       transform: rotate(10deg);
 
       img {
@@ -34,6 +32,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
+      padding-inline: 200px;
 
       a {
         background: none;
@@ -143,6 +142,10 @@
               text-transform: lowercase;
             }
           }
+        }
+
+        .dev {
+          justify-self: flex-end;
         }
       }
 
