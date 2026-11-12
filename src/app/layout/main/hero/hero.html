@@ -19,8 +19,10 @@
                 class="char"
                 [class.char--upper]="char === char.toUpperCase()"
                 aria-hidden="true"
-                >{{ char }}</span
               >
+                <span class="char__ghost">{{ char }}</span>
+                <span class="char__shown">{{ char }}</span>
+              </span>
             }
           </p>
         </div>
@@ -31,8 +33,10 @@
                 class="char"
                 [class.char--upper]="char === char.toUpperCase()"
                 aria-hidden="true"
-                >{{ char }}</span
               >
+                <span class="char__ghost">{{ char }}</span>
+                <span class="char__shown">{{ char }}</span>
+              </span>
             }
           </p>
         </div>

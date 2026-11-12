@@ -119,21 +119,28 @@
           cursor: default;
 
           .char {
-            display: inline-block; // required, because transform doesn't work on inline elements
-            transition:
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              color 0.35s ease,
-              text-shadow 0.35s ease;
+            display: inline-grid; // both spans share the same grid cell
 
-            &:hover {
-              // transform: scale(1.18) translateY(-4px);
-              color: #f7c518; // swap in your accent variable
-              // text-shadow: 0 0 24px rgba($orange, 0.6);
-              text-transform: uppercase; // lowercase letters become capitals
+            > span {
+              grid-area: 1 / 1;
+              text-align: center;
             }
 
-            &.char--upper:hover {
-              text-transform: lowercase; // capitals become lowercase
+            .char__ghost {
+              visibility: hidden; // invisible, but keeps the original letter's width
+            }
+
+            .char__shown {
+              transition: color 0.35s ease;
+            }
+
+            &:hover .char__shown {
+              color: #f7c518;
+              text-transform: uppercase;
+            }
+
+            &.char--upper:hover .char__shown {
+              text-transform: lowercase;
             }
           }
         }
