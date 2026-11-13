@@ -1,9 +1,21 @@
 <section id="hero" class="hero-wrapper">
   <div class="hero-content">
     <div class="hero-main">
-      <div class="photo">
-        <img src="./assets/img/03_stickers/polaroid-frame.webp" alt="polaroid-image" />
-      </div>
+      <figure class="photo">
+        <img class="photo__pic" src="./assets/img/polaroid.jpg" alt="Portrait of Wanja Mueller" />
+        <img
+          class="photo__frame"
+          src="./assets/img/03_stickers/polaroid-frame.webp"
+          alt="polaroid-frame"
+        />
+        <figcaption>
+          Wanja
+          <span class="smiley">
+            <span class="smiley__old">:)</span>
+            <span class="smiley__new" aria-hidden="true">:D</span>
+          </span>
+        </figcaption>
+      </figure>
       <a routerLink="/" fragment="about" class="hello"
         ><img class="hello-icon" src="../assets/img/icons/waving_hand.svg" alt="waving-hand" />
         <span class="swap">
