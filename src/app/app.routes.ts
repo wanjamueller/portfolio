@@ -6,7 +6,7 @@ import { Contact } from './layout/main/contact/contact';
 import { Main } from './layout/main/main';
 import { Hero } from './layout/main/hero/hero';
 import { Imprint } from './layout/imprint/imprint';
-import { Pollo } from './layout/pollo/pollo';
+import { Pollo } from './layout/main/projects/pollo/pollo';
 
 export const routes: Routes = [
   { path: '', component: Main },
