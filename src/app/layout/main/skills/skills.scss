@@ -196,6 +196,49 @@
           line-height: 110%;
         }
 
+        .reveal {
+          position: absolute;
+          inset: 12% 5%; // keeps it inside the yellow area
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8%;
+          text-align: center;
+          color: $off-white;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.05s ease 0s; // disappears at once when unpeeling
+
+          &__title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            line-height: 1.15;
+          }
+
+          &__items {
+            display: flex;
+            gap: 16%;
+          }
+
+          &__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+
+            svg {
+              height: 48px;
+              width: 48px;
+            }
+          }
+        }
+
+        &.peeled .reveal {
+          opacity: 1;
+          // transition: opacity 0.25s ease 0.1s; // appears after frame 3
+        }
+
         // peel (first click)
         &.peeled {
           .arrow,
