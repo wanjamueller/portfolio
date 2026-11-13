@@ -54,3 +54,9 @@
     @content;
   }
 }
+
+@mixin widescreen($width: 1440px) {
+  @include responsive($width, width, min) {
+    @content;
+  }
+}
