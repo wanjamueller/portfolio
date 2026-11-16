@@ -24,4 +24,17 @@ export class Footer {
   );
 
   onImprint = computed(() => this.url().startsWith('/imprint')); // true on the imprint page; recalculates automatically whenever url changes
+
+  onProject = toSignal(
+    // same logic as in the header: true when the active route has data: { project: true }
+    this.router.events.pipe(
+      filter((e) => e instanceof NavigationEnd), // only "navigation finished" events
+      map(() => {
+        let route = this.router.routerState.snapshot.root; // start at the root of the route tree
+        while (route.firstChild) route = route.firstChild; // walk down to the active page
+        return route.data['project'] === true; // read the flag from app.routes.ts
+      }),
+    ),
+    { initialValue: false }, // before the first navigation has finished
+  );
 }

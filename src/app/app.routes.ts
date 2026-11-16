@@ -16,6 +16,6 @@ export const routes: Routes = [
   { path: 'projects', component: Projects },
   { path: 'contact', component: Contact },
   { path: 'imprint', component: Imprint },
-  { path: 'pollo', component: Pollo },
+  { path: 'pollo', component: Pollo, data: { project: true } },
   { path: '**', redirectTo: '' },
 ];

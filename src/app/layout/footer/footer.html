@@ -1,13 +1,13 @@
-<footer [class.light]="onImprint()">
+<footer [class.light]="onImprint()" [class.project]="onProject()">
   <section class="footer-content">
     <div class="credits">
       <div>
         <a routerLink="/" fragment="hero" class="logo" aria-label="Back to top"></a>
       </div>
       <div class="copyrights">
-        <p>© Wanja Mueller 2026</p>
+        <p><span class="blend">© Wanja Mueller 2026</span></p>
         <a routerLink="/imprint">
-          Legal Notice
+          <span class="blend">Legal Notice</span>
           <img
             class="brush-mark"
             src="./assets/img/00_hand-drawn-lines/03_portfolio/underline.webp"
@@ -16,19 +16,20 @@
         </a>
       </div>
     </div>
+
     <a class="footer-link" href="https://github.com/wanjamueller" target="_blank">
       <img class="footer-icon" src="./assets/img/icons/git.svg" alt="" />
-      GitHub
+      <span class="blend">GitHub</span>
     </a>
 
     <a class="footer-link" href="https://www.linkedin.com/in/wanjamueller/" target="_blank">
       <img class="footer-icon" src="./assets/img/icons/linkedin.svg" alt="" />
-      LinkedIn
+      <span class="blend">LinkedIn</span>
     </a>
 
     <a class="footer-link" href="mailto:me@wanjamueller.com">
       <img class="footer-icon" src="./assets/img/icons/mail.svg" alt="" />
-      Email
+      <span class="blend">Email</span>
     </a>
   </section>
 </footer>

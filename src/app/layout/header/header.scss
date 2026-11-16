@@ -1,6 +1,10 @@
 @use '../../../../public/assets/styles/base/variables' as *;
 @use '../../../../public/assets/styles/base/mixins' as mixin;
 
+// =========================================================
+// HEADER: background bar, logo and language picker only
+// (the nav now lives outside the header, see below)
+// =========================================================
 header {
   height: 100px;
   padding: 19px 72px;
@@ -20,93 +24,12 @@ header {
     backdrop-filter: blur(8px);
   }
 
-  .logo {
-    @include mixin.logo;
+  &.project {
+    // anything else that should differ on project pages
   }
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    width: 70%;
-
-    ul {
-      display: flex;
-      gap: 10px;
-      list-style: none;
-      justify-content: space-between;
-      width: 100%;
-
-      li {
-        padding: 10px;
-
-        a {
-          text-decoration: none;
-          color: $off-white;
-          position: relative;
-          display: inline-block;
-
-          .circle {
-            position: absolute;
-            inset: -8px -16px; // make the circle a bit larger than the text
-            width: calc(100% + 32px);
-            height: calc(100% + 16px);
-            pointer-events: none;
-            clip-path: inset(0 0 100% 0); // hidden: clipped from the top down
-            transition: clip-path 0.4s ease;
-          }
-
-          &:hover .circle,
-          &:focus-visible .circle {
-            clip-path: inset(0 0 0 0); // fully visible
-          }
-
-          .underline {
-            position: absolute;
-            inset: -8px -16px; // make the circle a bit larger than the text
-            width: calc(100% + 32px);
-            height: calc(100% + 16px);
-            pointer-events: none;
-            clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
-            transition: clip-path 0.4s ease;
-          }
-
-          &:hover .underline,
-          &:focus-visible .underline {
-            clip-path: inset(0 0 0 0); // fully visible
-          }
-
-          .wave {
-            position: absolute;
-            inset: -8px -16px; // make the circle a bit larger than the text
-            width: calc(100% + 32px);
-            height: calc(100% + 42px);
-            pointer-events: none;
-            clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
-            transition: clip-path 0.4s ease;
-          }
-
-          &:hover .wave,
-          &:focus-visible .wave {
-            clip-path: inset(0 0 0 0); // fully visible
-          }
-
-          .line {
-            position: absolute;
-            inset: -8px -16px; // make the circle a bit larger than the text
-            width: calc(100% + 32px);
-            height: calc(100% + 16px);
-            pointer-events: none;
-            clip-path: inset(0 100% 0 0); // hidden: clipped from the top down
-            transition: clip-path 0.4s ease;
-          }
-
-          &:hover .line,
-          &:focus-visible .line {
-            clip-path: inset(0 0 0 0); // fully visible
-          }
-        }
-      }
-    }
+  .logo {
+    @include mixin.logo;
   }
 
   .language-picker {
@@ -152,6 +75,129 @@ header {
         height: 16px;
         position: absolute;
       }
+    }
+  }
+}
+
+// =========================================================
+// NAV: shared layout, both layers must be pixel-identical
+// =========================================================
+.nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%); // centered on the screen
+  // 70% of the header's content width (screen minus 2 × 72px padding),
+  // capped at 70% of 1320px = the content width from 1440px upwards
+  width: min(calc((100% - 144px) * 0.7), 924px);
+  height: 100px; // same height as the header, so the links line up vertically
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+
+  ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    justify-content: space-between;
+    width: 100%;
+
+    li {
+      padding: 10px;
+
+      span,
+      a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        // set explicitly on BOTH, because the global styles only size <a>, not <span>
+        font-size: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+      }
+    }
+  }
+}
+
+// =========================================================
+// LAYER 1: what you SEE (text only, no markers)
+// =========================================================
+.nav--text {
+  z-index: 11; // above the header, so it also blends with the scrolled background
+  pointer-events: none; // clicks pass through to the link layer
+  color: $off-white; // normal pages: plain text
+
+  &.project {
+    color: white; // pure white inverts most cleanly
+    mix-blend-mode: difference; // blend only on project pages
+  }
+}
+
+// =========================================================
+// LAYER 2: what you CLICK (real links + hover markers)
+// =========================================================
+.nav--links {
+  z-index: 12; // on top, receives hover and clicks
+
+  a {
+    color: transparent; // invisible, but keeps its size and stays readable for screen readers
+
+    .circle {
+      position: absolute;
+      inset: -8px -16px; // make the circle a bit larger than the text
+      width: calc(100% + 32px);
+      height: calc(100% + 16px);
+      pointer-events: none;
+      clip-path: inset(0 0 100% 0); // hidden: clipped from the top down
+      transition: clip-path 0.4s ease;
+    }
+
+    &:hover .circle,
+    &:focus-visible .circle {
+      clip-path: inset(0 0 0 0); // fully visible
+    }
+
+    .underline {
+      position: absolute;
+      inset: -8px -16px;
+      width: calc(100% + 32px);
+      height: calc(100% + 16px);
+      pointer-events: none;
+      clip-path: inset(0 100% 0 0); // hidden: clipped from the right
+      transition: clip-path 0.4s ease;
+    }
+
+    &:hover .underline,
+    &:focus-visible .underline {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .wave {
+      position: absolute;
+      inset: -8px -16px;
+      width: calc(100% + 32px);
+      height: calc(100% + 42px);
+      pointer-events: none;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.4s ease;
+    }
+
+    &:hover .wave,
+    &:focus-visible .wave {
+      clip-path: inset(0 0 0 0);
+    }
+
+    .line {
+      position: absolute;
+      inset: -8px -16px;
+      width: calc(100% + 32px);
+      height: calc(100% + 16px);
+      pointer-events: none;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.4s ease;
+    }
+
+    &:hover .line,
+    &:focus-visible .line {
+      clip-path: inset(0 0 0 0);
     }
   }
 }

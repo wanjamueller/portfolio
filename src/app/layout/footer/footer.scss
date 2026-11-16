@@ -9,6 +9,22 @@ footer {
   margin-bottom: 56px;
   padding: 0px 72px;
 
+  // blended text on project pages only
+  &.project {
+    .blend {
+      color: $off-white; // pure white inverts most cleanly
+      mix-blend-mode: difference; // dark on light background, light on dark
+    }
+
+    // on hover the link gets the blue pill behind the text:
+    // switch the blend off there, otherwise the text would invert against the blue
+    .footer-link:hover .blend,
+    .footer-link:focus-visible .blend {
+      color: $off-white;
+      mix-blend-mode: normal;
+    }
+  }
+
   .footer-content {
     display: flex;
     align-items: flex-end;
