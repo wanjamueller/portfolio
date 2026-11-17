@@ -24,10 +24,6 @@ header {
     backdrop-filter: blur(8px);
   }
 
-  &.project {
-    // anything else that should differ on project pages
-  }
-
   .logo {
     @include mixin.logo;
   }
