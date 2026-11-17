@@ -16,6 +16,7 @@
     gap: 49px;
     display: flex;
     flex-direction: column;
+    padding-inline: 72px;
 
     a {
       height: 24px;
@@ -80,6 +81,16 @@
         &__timeframe {
           display: flex;
           gap: 8px;
+        }
+      }
+    }
+
+    .project-link {
+      &__img {
+        img {
+          outline: 3px solid $black;
+          outline-offset: -2px; // move the outline 2px inward, onto the image
+          border-radius: 30px;
         }
       }
     }
