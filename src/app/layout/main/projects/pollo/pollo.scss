@@ -11,11 +11,16 @@
   background-position: left bottom;
   background-repeat: no-repeat;
   padding-top: 148px;
+  padding-bottom: calc(#{$footer-overlap} + 40px); // 220px footer overlap + 40px breathing room
+  display: flex;
+  flex-direction: column;
 
   .nav {
+    flex: 1;
     gap: 49px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding-inline: 72px;
 
     a {
@@ -23,11 +28,12 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 700;
+      font-weight: $bold-weight;
       color: $black;
     }
 
     .forward {
+      // margin-top: auto;
       align-self: flex-end;
       color: $off-white;
 
@@ -53,6 +59,7 @@
           display: flex;
           flex-direction: column;
           gap: 32px;
+          // width: 90%;
         }
 
         .description,
@@ -86,11 +93,37 @@
     }
 
     .project-link {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      padding-right: 48px;
+
       &__img {
+        padding-block: 22px;
         img {
           outline: 3px solid $black;
           outline-offset: -2px; // move the outline 2px inward, onto the image
           border-radius: 30px;
+        }
+      }
+
+      &-a {
+        display: flex;
+        gap: 33px;
+        justify-content: flex-end;
+
+        &__git {
+          color: $off-white;
+          height: 40px;
+          @include button;
+          @include orangeButton;
+        }
+
+        &__test {
+          color: $off-white;
+          height: 40px;
+          @include button;
+          @include orangeButton;
         }
       }
     }
@@ -98,7 +131,9 @@
 }
 
 @media screen and (min-width: 1440px) {
-  .nav {
-    padding: 0px calc(50% - 660px);
+  .project-wrapper {
+    .nav {
+      padding: 0px calc(50% - 660px);
+    }
   }
 }
