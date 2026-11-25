@@ -1,41 +1,5 @@
-<header id="header" [class.scrolled]="scrolled">
+<header id="header" [class.scrolled]="scrolled" [class.project]="onProject()">
   <a routerLink="/" fragment="hero" class="logo"></a>
-  <nav>
-    <ul>
-      <li>
-        <a routerLink="/" fragment="about"
-          >About me<img
-            class="circle"
-            src="./assets/img/00_hand-drawn-lines/00_header/1.webp"
-            alt="circle-marker"
-        /></a>
-      </li>
-      <li>
-        <a routerLink="/" fragment="skills"
-          >Skills<img
-            class="underline"
-            src="./assets/img/00_hand-drawn-lines/00_header/2.webp"
-            alt="underline-marker"
-        /></a>
-      </li>
-      <li>
-        <a routerLink="/" fragment="projects"
-          >Projects<img
-            class="wave"
-            src="./assets/img/00_hand-drawn-lines/00_header/4.webp"
-            alt="wave-marker"
-        /></a>
-      </li>
-      <li>
-        <a routerLink="/" fragment="contact"
-          >Contact<img
-            class="line"
-            src="./assets/img/00_hand-drawn-lines/00_header/3.webp"
-            alt="line-marker"
-        /></a>
-      </li>
-    </ul>
-  </nav>
   <section class="language-picker">
     <button>
       EN<img
@@ -56,4 +20,44 @@
       />
     </button>
   </section>
+  <!-- unchanged: EN button, language-icon, DE button -->
 </header>
+
+<!-- 1) what you SEE: text only, blended on project pages -->
+<nav class="nav nav--text" [class.project]="onProject()" aria-hidden="true">
+  <ul>
+    <li><span>About me</span></li>
+    <li><span>Skills</span></li>
+    <li><span>Projects</span></li>
+    <li><span>Contact</span></li>
+  </ul>
+</nav>
+
+<!-- 2) what you CLICK: real links + markers, text transparent -->
+<nav class="nav nav--links">
+  <ul>
+    <li>
+      <a routerLink="/" fragment="about"
+        >About me<img class="circle" src="./assets/img/00_hand-drawn-lines/00_header/1.webp" alt=""
+      /></a>
+    </li>
+    <li>
+      <a routerLink="/" fragment="skills"
+        >Skills<img
+          class="underline"
+          src="./assets/img/00_hand-drawn-lines/00_header/2.webp"
+          alt=""
+      /></a>
+    </li>
+    <li>
+      <a routerLink="/" fragment="projects"
+        >Projects<img class="wave" src="./assets/img/00_hand-drawn-lines/00_header/4.webp" alt=""
+      /></a>
+    </li>
+    <li>
+      <a routerLink="/" fragment="contact"
+        >Contact<img class="line" src="./assets/img/00_hand-drawn-lines/00_header/3.webp" alt=""
+      /></a>
+    </li>
+  </ul>
+</nav>

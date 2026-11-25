@@ -1,0 +1,49 @@
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:math';
+@use 'sass:string';
+
+/**
+ * Calculates a fluid CSS `clamp()` value that scales linearly between a minimum
+ * and maximum pixel size across a defined viewport range.
+ *
+ * How the math works (Linear Interpolation):
+ * - Below `$end` (e.g., 320px), the value stays locked at `$min` (in px).
+ * - Above `$start` (e.g., 1440px), the value stays locked at `$max` (in px).
+ * - Between `$end` and `$start`, the value scales proportionally based on the
+ *   current viewport width (`100svw`) or height (`100svh`).
+ *
+ * Formula used in `calc()`:
+ *   `$min + ($viewport - $end) * ($max - $min) / ($start - $end)`
+ *
+ * @param {Number} $min - The minimum size in pixels (unitless, e.g., `16` for 16px).
+ * @param {Number} $max - The maximum size in pixels (unitless, e.g., `32` for 32px).
+ * @param {Number} $start [1440] - The upper viewport breakpoint in pixels where `$max` is reached (unitless).
+ * @param {Number} $end [320] - The lower viewport breakpoint in pixels where `$min` is reached (unitless).
+ * @param {String} $axis [width] - The viewport dimension to scale against (`width` uses `100svw`, `height` uses `100svh`).
+ * @returns {String} A CSS `clamp(min, preferred, max)` expression.
+ *
+ * @example
+ *
+ *   font-size: calcClamp(16, 24);
+ *
+ * @example
+ *
+ *   gap: calcClamp(8, 32, 800, 350, height);
+ */
+@function calcClamp($min, $max, $start: 1440, $end: 320, $axis: width) {
+  @if $start <= $end {
+    @error "calcClamp: $start (#{$start}) must be greater than $end (#{$end}).";
+  }
+
+  $viewport: 100svw;
+  @if $axis == 'height' {
+    $viewport: 100svh;
+  }
+
+  @return clamp(
+    $min * 1px,
+    calc(($viewport - $end * 1px) * ($max - $min) / ($start - $end) + $min * 1px),
+    $max * 1px
+  );
+}
