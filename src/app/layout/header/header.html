@@ -1,5 +1,10 @@
-<header id="header" [class.scrolled]="scrolled" [class.project]="onProject()">
-  <a routerLink="/" fragment="hero" class="logo"></a>
+<header
+  id="header"
+  [class.scrolled]="scrolled"
+  [class.project]="onProject()"
+  [class.menu-open]="menuOpen()"
+>
+  <a routerLink="/" fragment="hero" class="logo" (click)="closeMenu()" aria-label="Home"></a>
   <section class="language-picker">
     <button>
       EN<img
@@ -20,7 +25,21 @@
       />
     </button>
   </section>
-  <!-- unchanged: EN button, language-icon, DE button -->
+  <!-- burger: only visible ≤ 768px -->
+  <button
+    class="burger"
+    [class.open]="menuOpen()"
+    [class.pressing]="pressing()"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="mobile-menu"
+    [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+  >
+    <svg class="icon icon--menu"><use href="assets/icons/icons.svg#menu"></use></svg>
+    <svg class="icon icon--menu-hover"><use href="assets/icons/icons.svg#menu-hover"></use></svg>
+    <svg class="icon icon--close"><use href="assets/icons/icons.svg#close"></use></svg>
+    <svg class="icon icon--close-hover"><use href="assets/icons/icons.svg#close-hover"></use></svg>
+  </button>
 </header>
 
 <!-- 1) what you SEE: text only, blended on project pages -->
@@ -61,3 +80,27 @@
     </li>
   </ul>
 </nav>
+<div id="mobile-menu" class="mobile-menu" [class.open]="menuOpen()">
+  <nav>
+    <a routerLink="/" fragment="about" (click)="closeMenu()">About me</a>
+    <a routerLink="/" fragment="skills" (click)="closeMenu()">Skills</a>
+    <a routerLink="/" fragment="projects" (click)="closeMenu()">Projects</a>
+    <a routerLink="/" fragment="contact" (click)="closeMenu()">Contact</a>
+  </nav>
+
+  <section class="language-picker">
+    <!-- copy of the same EN / language-icon / DE markup -->
+  </section>
+
+  <div class="socials">
+    <a href="https://www.linkedin.com/in/wanjamueller/" target="_blank" aria-label="LinkedIn">
+      <svg><use href="assets/icons/icons.svg#linkedin"></use></svg>
+    </a>
+    <a href="https://github.com/wanjamueller" target="_blank" aria-label="GitHub">
+      <svg><use href="assets/icons/icons.svg#github"></use></svg>
+    </a>
+    <a href="mailto:me@wanjamueller.com" aria-label="Email">
+      <svg viewBox="0 0 24 20"><use href="assets/icons/icons.svg#mail"></use></svg>
+    </a>
+  </div>
+</div>
