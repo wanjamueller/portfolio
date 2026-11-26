@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'functions' as *;
 
 * {
   margin: 0;
@@ -9,33 +10,39 @@
 }
 
 h2 {
-  font-size: clamp(3rem, 2.7143rem + 1.4286vw, 4rem); // 3-4rem
+  // font-size: clamp(3rem, 2.7143rem + 1.4286vw, 4rem); // 3-4rem
+  font-size: calcCLamp(48, 64, 1440, 769);
   font-weight: $bold-weight;
 }
 
 h3 {
-  font-size: 1.5rem;
+  // font-size: 1.5rem;
+  font-size: calcClamp(20, 24, 1440, 769);
   font-weight: $bold-weight;
 }
 
 h4 {
-  font-size: 1.25rem;
+  // font-size: 1.25rem;
+  font-size: calcClamp(18, 20, 1440, 769);
   font-weight: $medium-weight;
 }
 
 p {
-  font-size: 1.125rem;
+  // font-size: 1.125rem;
+  font-size: calcClamp(16, 18, 1440, 769);
 }
 
 button {
   cursor: pointer;
-  font-size: 1.125rem;
+  // font-size: 1.125rem;
+  font-size: calcClamp(16, 18, 1440, 769);
 }
 
 a {
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.125rem;
+  // font-size: 1.125rem;
+  font-size: calcClamp(16, 18, 1440, 769);
 }
 
 @media screen and (min-width: 320px) and (max-width: 1440px) {
